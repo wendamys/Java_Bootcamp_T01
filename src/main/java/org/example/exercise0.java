@@ -9,7 +9,6 @@ public class exercise0 {
         scanner.useLocale(Locale.US);
         double[] myArray = new double[6];
         int i = 0;
-        System.out.print("Input numbers: ");
         while (i < 6) {
             if (scanner.hasNextDouble()) {
                 myArray[i] = scanner.nextDouble();
