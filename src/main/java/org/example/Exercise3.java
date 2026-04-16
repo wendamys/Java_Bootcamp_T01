@@ -3,7 +3,10 @@ import java.util.Scanner;
 
 public class Exercise3 {
     public static void main(String[] args){
-        InputUser();
+        int[] userArr = InputUser();
+        if (userArr != null && userArr.length == 5){
+            Recursive(userArr[0], userArr[1], userArr[2], userArr[3], userArr[4]);
+        }
     }
 
     public static void Recursive(long f0, long f1, long Fn, long numberIsUser, int count){
@@ -19,7 +22,7 @@ public class Exercise3 {
         }
     }
 
-    public static void InputUser(){
+    public static int[] InputUser(){
         Scanner scanner = new Scanner(System.in);
         long f0 = 0;
         long f1 = 1;
@@ -31,14 +34,15 @@ public class Exercise3 {
                 int numberIsUser = scanner.nextInt(); // 0, 1, 2, 3, 4
                 if (numberIsUser > 50) {
                     System.out.println("\tToo large n");
-                    break;
+                    return new int[0];
                 }
                 if (numberIsUser >= 0 && numberIsUser <= 1) {
                     System.out.println(numberIsUser);
-                    break;
+                    return new int[0];
                 }
-                Recursive(f0, f1, Fn, numberIsUser, count);
-                break;
+                int[] myArr = {0, Math.toIntExact(f1), 0, numberIsUser, count};
+                return myArr;
+
             } else {
                 System.out.println("Could not parse a number. Please, try again");
                 scanner.next();
