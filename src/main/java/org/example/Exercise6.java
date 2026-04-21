@@ -61,6 +61,9 @@ public class Exercise6 {
     }
 
     public static void PrintArray(double[] Array){
+        if (Array.length == 0) {
+            return;
+        }
         System.out.println(Arrays.toString(Array));
     }
 }
